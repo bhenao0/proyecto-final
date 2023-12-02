@@ -5,12 +5,7 @@ import { useRouter } from "next/navigation";
 export default function Product({product, addToCart}){
     const {id, title, price, image, }= product
     const router = useRouter()
-    const viewProduct = async()=>{
-        try{
-            router.push('/ViewProducto ')
-
-            }catch(error){}
-        }
+    
     
 return(
     <div className="Product">
@@ -20,7 +15,7 @@ return(
             />
             <h3>{ title }</h3>
             <p>$ { price }</p>
-            <Button className='AddToCar' onClick={() => viewProduct(id)}>Ver Producto</Button>
+            <Button className='AddToCar'>Ver Producto</Button>
             <Button className='AddToCar' onClick={() => addToCart(id)}
             > Añadir al Carrito
             </Button>

@@ -6,7 +6,6 @@
 import PrivateRouter from "@/components/PrivateRoute"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navar from "@/components/Navbar/NavbarEstado";
-import ViewProducto from "@/components/ViewProducto/ViewProducto";
 import Productoslits from "@/components/Produclist/Productoslits";
 
 import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
