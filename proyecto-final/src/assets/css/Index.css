@@ -1,0 +1,20 @@
+
+.Banner h1{
+    text-align: center;
+    color: rgba(236, 85, 4, 0.95);
+}
+.Slider {
+    position: fixed;
+    display: flex;
+    height: auto;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+.Slider img{
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+    
+}

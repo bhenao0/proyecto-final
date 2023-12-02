@@ -1,0 +1,83 @@
+.header {
+    margin: 10px;
+    height: 50px;
+    display: flex;
+    justify-content:space-around;
+    position: relative;
+    padding: 0.5rem 0rem;
+    background-color: rgba(236, 85, 4, 0.95);
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23); 
+    color: rgba(255, 255, 255, 0.95);
+}
+.Busqueda{
+    display: flex;
+}
+.Busqueda input{
+    display: flex;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    width: 300px;
+}
+ul {
+    list-style:none;
+}
+
+.nav > li {
+    float:left;
+}
+
+    .nav li a {
+        
+        color:#fff;
+        text-decoration:none;
+        padding:5px 10px;
+        display:block;
+        margin: 0 10px;
+    }
+    .Cat {
+        background-color: #8a8787af;
+        color: black;
+        list-style:square;
+        border-radius: 5px;
+        
+        
+    }
+    .nav li a:hover {
+        color: black;
+    }
+    .nav li ul {
+        display:none;
+        position:absolute;
+        
+    }
+    .nav li:hover > ul {
+        display:block;
+    }
+    .nav li:hover  {
+        color: #000;
+        background-color: rgb(255, 252, 252);
+        border-radius: 5px;
+        cursor: pointer;
+    }   
+.Busqueda button{
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    background-color: #CCC;
+    }    
+    .Busqueda button:hover{
+        background-color: rgb(255, 252, 252);
+        border-radius: 5px;
+        color: black;
+        cursor: pointer;
+    }
+
+
+
+
+
+
+
