@@ -15,6 +15,7 @@ export default function Home(){
     const router = useRouter()
     const [products, setProdcutos]= useState([])
     const [filtroCat, setFiltro] = useState("")
+    const [searchProduct, setSearchProduct]=useState("")
     const [cartItems, setCartItems] = useState([])
     
     const producPage = async()=>{
@@ -23,6 +24,9 @@ export default function Home(){
             setFiltro(filtroCat => filtroCat='')
             }catch(error){}
         }
+    const filtroProduct= event=>{
+        setSearchProduct(event.target.value)
+    }
     const filtroElectronics = () => {
         setFiltro(filtroCat => filtroCat='/category/electronics') 
     }
@@ -47,15 +51,15 @@ export default function Home(){
     const removeFromCart = (productId) => {
         setCartItems(prevItems => prevItems.filter(item => item.id !== productId))
     }
-    useEffect(()=>{
-        let url= `https://fakestoreapi.com/products${ filtroCat }`
-        fetch(url)
-        .then( response =>response.json())
-        .then (data => setProdcutos(data))
-        .catch(error => console.log(error))
-        console.log(products)
-        },[filtroCat])
-    
+    const producList = useEffect(()=>{
+                            let url= `https://fakestoreapi.com/products${ filtroCat }`
+                            fetch(url)
+                            .then( response =>response.json())
+                            .then (data => setProdcutos(data))
+                            .catch(error => console.log(error))
+                            console.log(products)
+                        },[filtroCat])
+    const productsResult = products.filter( (product) => product.title.toLowerCase().includes(searchProduct.toLowerCase()))
     return(
         
     <PrivateRouter>
@@ -66,9 +70,10 @@ export default function Home(){
             filtromensclothing ={ filtromensclothing }
             filtrowomensclothing={filtrowomensclothing}
             producPage ={producPage}
+            filtroProduct ={filtroProduct}
         ></Navar>
         <Cart cartItems={ cartItems } removeToCart={ removeFromCart } />
-        <Productoslits products={ products} addToCart={ addProductsToCart } viewProduct={viewProduct} />
+        <Productoslits products={ productsResult } addToCart={ addProductsToCart } viewProduct={viewProduct} />
     </PrivateRouter>
     )
 }

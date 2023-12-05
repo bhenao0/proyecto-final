@@ -11,7 +11,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,filtromensclothing,filtrowomensclothing}){
+export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,filtromensclothing,filtrowomensclothing,filtroProduct}){
     const auth = getAuth(firebase);
     const router = useRouter()
     const [user, setUser]= useState('')
@@ -58,7 +58,10 @@ export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,
         return (
             <nav className="header">
                 <div className='Busqueda'>
-                    <input  placeholder="¡Ingresar tu Palabra de busqueda!"/>
+                    <input  
+                        placeholder="¡Ingresar tu Palabra de busqueda!"
+                        onChange={filtroProduct}
+                    />
                     <button>
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                         <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 

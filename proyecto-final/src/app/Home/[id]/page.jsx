@@ -1,5 +1,6 @@
 'use client'
-import NavbarEstado from "@/components/Navbar/NavbarEstado"
+import Navar from "@/components/Navbar/NavbarEstado"
+import Cart from "@/components/Cart/Cart"
 import { useEffect,useState } from "react"
 export default function ViewProduct({params}){
     const [products, setProdcutos]= useState([])
@@ -14,7 +15,8 @@ export default function ViewProduct({params}){
         console.log(products)
     return(
         <>
-        
+        <Navar></Navar>
+        <Cart></Cart>
         <div className="Product-list">
             
             {products.id}
