@@ -54,13 +54,13 @@ export default function Home(){
     // console.log(localStorage.getItem("cartList"))
     Object.keys(localStorage.getItem("cartList")).forEach(e => 
         console.log(e)
-       );
+    );
     useEffect(()=>{
-                            let url= `https://fakestoreapi.com/products${ filtroCat }`
-                            fetch(url)
-                            .then( response =>response.json())
-                            .then (data => setProdcutos(data))
-                            .catch(error => console.log(error))
+                let url= `https://fakestoreapi.com/products${ filtroCat }`
+                fetch(url)
+                .then( response =>response.json())
+                .then (data => setProdcutos(data))
+                .catch(error => console.log(error))
                             
     },[filtroCat])
     const productsResult = products.filter( (product) => product.title.toLowerCase().includes(searchProduct.toLowerCase()))
