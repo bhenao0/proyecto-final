@@ -5,11 +5,11 @@ import Navar from "@/components/Navbar/NavbarEstado";
 import Productoslits from "@/components/Produclist/Productoslits";
 import Cart from "@/components/Cart/Cart";
 
-
 import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
 import { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
+
 export default function Home(){
     const router = useRouter()
     const [products, setProdcutos]= useState([])
@@ -42,7 +42,7 @@ export default function Home(){
 
     useEffect(() => {
         localStorage.setItem("cartListx", JSON.stringify(cartItems))
-      }, [cartItems])
+    }, [cartItems])
 
     const addProductsToCart = (productId) => {
         const addProduct = products.find(product => product.id === productId)
@@ -55,12 +55,11 @@ export default function Home(){
     }
     const removeFromCart = (productId) => {
         const index = cartItems.findIndex(item => item.id === productId);
-         const cartStorageFilter = cartItems.filter((_, i) => i !== index);
-       
+        const cartStorageFilter = cartItems.filter((_, i) => i !== index);
         // const cartStorageFilter = cartItems.filter((item) => {
         //     return item.id !== productId
         //   })
-          setCartItems(cartStorageFilter)  
+        setCartItems(cartStorageFilter)  
         
         localStorage.setItem("cartListx", JSON.stringify(cartStorageFilter))
     }

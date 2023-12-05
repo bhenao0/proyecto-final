@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation";
 export default function Product({product, addToCart, viewProduct}){
     const {id, title, price, image, }= product
     const router = useRouter()
-    
-    
 return(
     <div className="Product">
             <img

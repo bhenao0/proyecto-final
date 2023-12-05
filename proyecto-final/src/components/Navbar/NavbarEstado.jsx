@@ -11,7 +11,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,filtromensclothing,filtrowomensclothing,filtroProduct}){
+export default function NavbarEstado ({homePage,producPage,filtroElectronics,filtroJeweler,filtromensclothing,filtrowomensclothing,filtroProduct}){
     const auth = getAuth(firebase);
     const router = useRouter()
     const [user, setUser]= useState('')
@@ -29,11 +29,7 @@ export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,
             router.push('/Home')
             }catch(error){}
         }
-    const producPage = async()=>{
-        try{
-            router.push('/Home')
-            }catch(error){}
-        }
+    
     const registerPage = async()=>{
         try{
             router.push('/Register')
@@ -71,7 +67,7 @@ export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,
                 </div> 
                 <ul className='nav'>
                     <li><a onClick={ () => inicioPage() }>HOME</a></li>
-                    <li><a onClick={ producPage }>PRODUCTOS</a></li>
+                    <li><a onClick={ () => producPage() }>PRODUCTOS</a></li>
                     <li><a >CATEGORIAS</a>
                         <ul className='Cat'>
                             <li><a onClick={() => filtroElectronics()}>Electronico</a></li>
