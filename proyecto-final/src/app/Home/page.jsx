@@ -15,7 +15,8 @@ export default function Home(){
     const [products, setProdcutos]= useState([])
     const [filtroCat, setFiltro] = useState("")
     const [searchProduct, setSearchProduct]=useState("")
-    const [cartItems, setCartItems] = useState([])
+    const cartLocalStorage = JSON.parse(localStorage.getItem("cartListx") || "[]")
+    const [cartItems, setCartItems] = useState(cartLocalStorage)
     
     const producPage = async()=>{
         try{
@@ -38,10 +39,14 @@ export default function Home(){
     const filtrowomensclothing = () => {
         setFiltro(filtroCat => filtroCat=`/category/women's clothing`)
     }
+
+    useEffect(() => {
+        localStorage.setItem("cartListx", JSON.stringify(cartItems))
+      }, [cartItems])
+
     const addProductsToCart = (productId) => {
         const addProduct = products.find(product => product.id === productId)
         setCartItems(prevItems => [...prevItems, addProduct])
-        localStorage.setItem("cartList", cartItems)
     }
     const viewProduct =async(productId)=>{
         try{
@@ -49,12 +54,16 @@ export default function Home(){
         }catch(error){}
     }
     const removeFromCart = (productId) => {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== productId))
+        const index = cartItems.findIndex(item => item.id === productId);
+         const cartStorageFilter = cartItems.filter((_, i) => i !== index);
+       
+        // const cartStorageFilter = cartItems.filter((item) => {
+        //     return item.id !== productId
+        //   })
+          setCartItems(cartStorageFilter)  
+        
+        localStorage.setItem("cartListx", JSON.stringify(cartStorageFilter))
     }
-    // console.log(localStorage.getItem("cartList"))
-    Object.keys(localStorage.getItem("cartList")).forEach(e => 
-        console.log(e)
-    );
     useEffect(()=>{
                 let url= `https://fakestoreapi.com/products${ filtroCat }`
                 fetch(url)
