@@ -21,7 +21,7 @@ export default function LoginPage(){
     const [password, setPass] = useState('')
     const auth = getAuth(firebase)
     const router= useRouter(firebase)
-    
+
     const handeLogin = async()=>{
         console.log(setEmail)
         try{
@@ -50,7 +50,9 @@ export default function LoginPage(){
 
     return(
         <>
-        <Navar />
+        <Navar 
+            
+        />
         <Container>
             <Row className='Justify-content-center mt-5'>
                 <Col xs={ 10 } sm={ 8 } md={ 6 }>

@@ -13,13 +13,20 @@ export default function ViewProduct({params,addToCart}){
     const cartLocalStorage = JSON.parse(localStorage.getItem("cartListx") || "[]")
     const [cartItems, setCartItems] = useState(cartLocalStorage)
     const removeFromCart = (productId) => {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== productId))
+        const index = cartItems.findIndex(item => item.id === productId);
+        const cartStorageFilter = cartItems.filter((_, i) => i !== index);
+        // const cartStorageFilter = cartItems.filter((item) => {
+        //     return item.id !== productId
+        //   })
+        setCartItems(cartStorageFilter)  
+        
+        localStorage.setItem("cartListx", JSON.stringify(cartStorageFilter))
     }
     const addProductsToCart = (productId) => {
         
         setCartItems(prevItems => [...prevItems, products])
     }
-    const producPage = async()=>{
+    const pageProduct = async()=>{
         try{
             router.push('/Home')
             }catch(error){}
@@ -43,7 +50,12 @@ export default function ViewProduct({params,addToCart}){
             router.push('/Home')
             setFiltro(filtroCat => filtroCat=`/category/women's clothing`)
         }
-        
+        const filtroCategorias =() =>{
+            router.push('/Home')
+        }
+        useEffect(() => {
+            localStorage.setItem("cartListx", JSON.stringify(cartItems))
+        }, [cartItems])   
     useEffect(()=>{
         localStorage.setItem("cartListx", JSON.stringify(cartItems))
         let url= `https://fakestoreapi.com/products/${params.id}`
@@ -55,12 +67,13 @@ export default function ViewProduct({params,addToCart}){
     return(
         <>
         <Navar 
-            producPage={producPage}
+            pageProduct={pageProduct}
             filtroElectronics={filtroElectronics}
             filtroJeweler={filtroJeweler}
             filtromensclothing ={ filtromensclothing }
             filtrowomensclothing={filtrowomensclothing}
             filtroProduct ={filtroProduct}
+            filtroCategorias={filtroCategorias}
         > 
         </Navar>
         <Cart cartItems={ cartItems } removeToCart={ removeFromCart }  />

@@ -18,10 +18,16 @@ export default function Home(){
     const cartLocalStorage = JSON.parse(localStorage.getItem("cartListx") || "[]")
     const [cartItems, setCartItems] = useState(cartLocalStorage)
     
-    const producPage = async()=>{
+    const pageProduct = async()=>{
         try{
             router.push('/Home')
             setFiltro(filtroCat => filtroCat='')
+            }catch(error){}
+        }
+    const filtroCategorias = async()=>{
+        try{
+            router.push('/Home')
+            
             }catch(error){}
         }
     const filtroProduct= event=>{
@@ -77,11 +83,12 @@ export default function Home(){
     <PrivateRouter>
         
         <Navar
+            pageProduct={pageProduct}
             filtroElectronics={filtroElectronics}
             filtroJeweler={filtroJeweler}
             filtromensclothing ={ filtromensclothing }
             filtrowomensclothing={filtrowomensclothing}
-            producPage ={producPage}
+            filtroCategorias ={filtroCategorias}
             filtroProduct ={filtroProduct}
         ></Navar>
         <Cart cartItems={ cartItems } removeToCart={ removeFromCart } />
