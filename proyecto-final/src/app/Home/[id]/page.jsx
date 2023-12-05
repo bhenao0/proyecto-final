@@ -53,22 +53,11 @@ export default function ViewProduct({params,addToCart}){
             router.push('/Home')
             setFiltro(filtroCat => filtroCat=`/category/women's clothing`)
         }
-<<<<<<< HEAD
         
         useEffect(() => {
             localStorage.setItem("cartListx", JSON.stringify(cartItems))
         }, [cartItems])
 
-||||||| 381586c
-        
-=======
-        const filtroCategorias =() =>{
-            router.push('/Home')
-        }
-        useEffect(() => {
-            localStorage.setItem("cartListx", JSON.stringify(cartItems))
-        }, [cartItems])   
->>>>>>> c61ceeb784974b3b96fc87d4439052d221ebcef4
     useEffect(()=>{
         localStorage.setItem("cartListx", JSON.stringify(cartItems))
         let url= `https://fakestoreapi.com/products/${params.id}`
