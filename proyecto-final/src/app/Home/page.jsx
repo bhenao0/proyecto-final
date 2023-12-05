@@ -10,7 +10,6 @@ import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
 import { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
-
 export default function Home(){
     const router = useRouter()
     const [products, setProdcutos]= useState([])
@@ -42,6 +41,7 @@ export default function Home(){
     const addProductsToCart = (productId) => {
         const addProduct = products.find(product => product.id === productId)
         setCartItems(prevItems => [...prevItems, addProduct])
+        localStorage.setItem("cartList", cartItems)
     }
     const viewProduct =async(productId)=>{
         try{
@@ -51,14 +51,18 @@ export default function Home(){
     const removeFromCart = (productId) => {
         setCartItems(prevItems => prevItems.filter(item => item.id !== productId))
     }
-    const producList = useEffect(()=>{
+    // console.log(localStorage.getItem("cartList"))
+    Object.keys(localStorage.getItem("cartList")).forEach(e => 
+        console.log(e)
+       );
+    useEffect(()=>{
                             let url= `https://fakestoreapi.com/products${ filtroCat }`
                             fetch(url)
                             .then( response =>response.json())
                             .then (data => setProdcutos(data))
                             .catch(error => console.log(error))
-                            console.log(products)
-                        },[filtroCat])
+                            
+    },[filtroCat])
     const productsResult = products.filter( (product) => product.title.toLowerCase().includes(searchProduct.toLowerCase()))
     return(
         
