@@ -26,7 +26,7 @@ export default function NavbarEstado ({homePage,producPage,filtroElectronics,fil
     }
     const inicioPage = async()=>{
         try{
-            router.push('/Home')
+            router.push('/')
             }catch(error){}
         }
     

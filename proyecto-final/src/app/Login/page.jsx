@@ -50,7 +50,7 @@ export default function LoginPage(){
 
     return(
         <>
-        <Navar/>
+        <Navar />
         <Container>
             <Row className='Justify-content-center mt-5'>
                 <Col xs={ 10 } sm={ 8 } md={ 6 }>

@@ -16,8 +16,8 @@ export default function ViewProduct({params,addToCart}){
         setCartItems(prevItems => prevItems.filter(item => item.id !== productId))
     }
     const addProductsToCart = (productId) => {
-        const addProduct = products.find(product => product.id === productId)
-        setCartItems(prevItems => [...prevItems, addProduct])
+        
+        setCartItems(prevItems => [...prevItems, products])
     }
     const producPage = async()=>{
         try{
