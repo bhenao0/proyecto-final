@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navar from "@/components/Navbar/NavbarEstado";
 import Productoslits from "@/components/Produclist/Productoslits";
 import Cart from "@/components/Cart/Cart";
+import Footer from '@/components/Footer/Footer';
 
 import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
 import { useState, useEffect } from 'react'
@@ -86,6 +87,7 @@ export default function Home(){
         ></Navar>
         <Cart cartItems={ cartItems } removeToCart={ removeFromCart } />
         <Productoslits products={ productsResult } addToCart={ addProductsToCart } viewProduct={viewProduct} />
+        <Footer/>
     </PrivateRouter>
     )
 }

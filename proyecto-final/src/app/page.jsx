@@ -2,6 +2,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navar from '@/components/Navbar/NavbarEstado';
+
 import '@/assets/css/Index.css'
 
 export default function MainPage(){

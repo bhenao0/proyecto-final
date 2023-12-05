@@ -6,16 +6,19 @@ import Cart from "@/components/Cart/Cart"
 import { useEffect,useState } from "react"
 import { Button } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
+import Footer from '@/components/Footer/Footer';
+
 export default function ViewProduct({params,addToCart}){
     const router = useRouter()
     const [products, setProdcutos]= useState([])
     const [filtroCat, setFiltro] = useState("")
     const cartLocalStorage = JSON.parse(localStorage.getItem("cartListx") || "[]")
     const [cartItems, setCartItems] = useState(cartLocalStorage)
+    
     const removeFromCart = (productId) => {
         setCartItems(prevItems => prevItems.filter(item => item.id !== productId))
     }
-    const addProductsToCart = (productId) => {
+    const addProductsToCart = () => {
         
         setCartItems(prevItems => [...prevItems, products])
     }
@@ -44,6 +47,10 @@ export default function ViewProduct({params,addToCart}){
             setFiltro(filtroCat => filtroCat=`/category/women's clothing`)
         }
         
+        useEffect(() => {
+            localStorage.setItem("cartListx", JSON.stringify(cartItems))
+        }, [cartItems])
+
     useEffect(()=>{
         localStorage.setItem("cartListx", JSON.stringify(cartItems))
         let url= `https://fakestoreapi.com/products/${params.id}`
@@ -76,6 +83,7 @@ export default function ViewProduct({params,addToCart}){
             > Añadir al Carrito
             </Button>
         </div>
+        <Footer/>
         </>
     )
 }
