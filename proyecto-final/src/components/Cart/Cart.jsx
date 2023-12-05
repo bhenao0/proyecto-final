@@ -15,7 +15,7 @@ export default function Cart({ cartItems, removeToCart }){
     return (
         <> <ul className='Cart'>
             <ul className='navOculto'>
-                <li><h2>Carrito de compras</h2>
+                <li>Carrito de compras
                     <ul>
                     {
                     cartItems.map(item => (

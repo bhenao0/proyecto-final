@@ -34,6 +34,13 @@ export default function ViewProduct({params,addToCart}){
             router.push('/Home')
             }catch(error){}
         }
+        const filtroCategorias = async()=>{
+            try{
+                router.push('/Home')
+                
+                }catch(error){}
+            }
+            
         const filtroProduct= event=>{
             setSearchProduct(event.target.value)
         }
