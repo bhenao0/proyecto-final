@@ -32,8 +32,6 @@ return(
                     </div>
                 </div>
 
-                <div class="clearfix visible-xs"></div>
-
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
                         <h3 class="footer-title">Informacion</h3>

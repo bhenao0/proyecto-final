@@ -71,7 +71,7 @@ export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,
                     <li><a onClick={ () => pageProduct()}>PRODUCTOS</a></li>
                     <li><a >CATEGORIAS</a>
                         <ul className='Cat'>
-                            <li><a onClick={() => filtroCategorias()}>Todas Categorias</a></li>
+                            <li><a onClick={ () => pageProduct()}>Todas Categorias</a></li>
                             <li><a onClick={() => filtroElectronics()}>Electronico</a></li>
                             <li><a onClick={() => filtroJeweler()}>Joyas</a></li>
                             <li><a onClick={() => filtromensclothing()}>Hombre</a></li>
