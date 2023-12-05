@@ -1,7 +1,7 @@
 import './Productoslits.css'
 import Product from "@/components/Productos/Product";
 
-export default function({products, addToCart}){
+export default function({products, addToCart,viewProduct }){
 
 
     return(
@@ -11,7 +11,8 @@ export default function({products, addToCart}){
                     <Product  
                         key={product.id}
                         product={ product }
-                        addToCart={ addToCart}    
+                        addToCart={ addToCart}
+                        viewProduct={viewProduct}    
                     >hola</Product>
                 ))
             }
