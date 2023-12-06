@@ -54,6 +54,7 @@ export default function NavbarEstado ({homePage,filtroElectronics,filtroJeweler,
     if(user !== null){
         return (
             <nav className="header">
+                <h2>KIWI</h2>
                 <div className='Busqueda'>
                     <input  
                         placeholder="¡Ingresar tu Palabra de busqueda!"
